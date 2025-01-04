@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
+    public float birdWeight = 0.2f;
+    public Transform leftPoint;
+    public Transform rightPoint;
+    public LineRenderer left;  //弹弓左边部分
+    public LineRenderer right;  //弹弓右边部分
     public float maxSpringStretch = 1; 
-    public Transform point;
+    public Transform point;  //Bird物体所在的中心点
     private bool isClick = false;
     private SpringJoint2D sp;
     private Rigidbody2D rg;
@@ -25,6 +31,7 @@ public class Bird : MonoBehaviour
         isClick = false;
         rg.isKinematic = false;
         Invoke("Fly",0.1f);
+        InitLine();
     }
 
     private void Fly()
@@ -41,6 +48,25 @@ public class Bird : MonoBehaviour
                 now = (now / now.magnitude) * maxSpringStretch;
             }
             transform.position = point.position + now;
+            Line(point.position + now + now / now.magnitude * birdWeight);
         }
+    }
+    private void InitLine()
+    {
+        right.SetPosition(0,rightPoint.position);
+        right.SetPosition(1,point.position);
+
+        left.SetPosition(0,leftPoint.position);
+        left.SetPosition(1,point.position);
+    }
+    //划线操作
+    private void Line(Vector3 now) //now用来表示与弹簧中心相对的边缘点
+    {
+        right.SetPosition(0,rightPoint.position);
+        right.SetPosition(1,now);
+
+        left.SetPosition(0,leftPoint.position);
+        left.SetPosition(1,now);
+        
     }
 }
