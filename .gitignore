@@ -1,4 +1,6 @@
 .vscode/
+AngryBrid_Study.sln
+Assembly-CSharp.csproj
 
 # Ignore Unity specific folders
 Library/
@@ -18,5 +20,3 @@ UserSettings/
 
 # Ignore logs
 *.log
-AngryBrid_Study.sln
-Assembly-CSharp.csproj
