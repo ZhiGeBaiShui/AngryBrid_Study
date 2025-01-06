@@ -18,3 +18,5 @@ UserSettings/
 
 # Ignore logs
 *.log
+AngryBrid_Study.sln
+Assembly-CSharp.csproj

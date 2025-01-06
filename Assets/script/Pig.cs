@@ -10,7 +10,7 @@ public class Pig : MonoBehaviour
     public GameObject score;
     //死亡得分
     public Vector3 boomLocalScale;
-    private Vector3 scoreScale = new Vector3(1, 1, 1);
+    private Vector3 scoreScale = new(1, 1, 1);
     //Score分数需要变换的最终大小
     private void Start()
     {
@@ -41,30 +41,21 @@ public class Pig : MonoBehaviour
         int x = bH.damageHP((int)(other.relativeVelocity.magnitude / hurtSpeed));
         if(x <= 0)
         {
-            dieEnd();
+            DieEnd();
         }
     }
-    private void dieEnd()
+    private void DieEnd()
     {
-        Destroy(gameObject);
         /*
         以下代码为游戏对象死亡以后会进行的各类处理
         目前仅仅存在两种游戏对象
         pig死亡会产生死亡动画与分数
-        为保证动画全部同时进行，采取协程操作
         */
-        StartCoroutine(WaitForAllTasksToComplete());
+        BoomPlay();
+        ScorePlay();
+        Destroy(gameObject);
     }
-    IEnumerator WaitForAllTasksToComplete()
-    {
-        var task1 = StartCoroutine(BoomPlay());
-        //task1处理爆炸动画
-        var task2 = StartCoroutine(ScorePlay());
-        //task2处理分数播放
-        //等待两个任务都完成
-        yield return new WaitUntil(() => task1 == null && task2 == null);
-    }
-    IEnumerator BoomPlay()
+    void BoomPlay()
     {
         //未分配爆炸动画时，不进行预制件的实例化
         //未分配爆炸动画一般而言意味其组件主体为bird
@@ -73,17 +64,16 @@ public class Pig : MonoBehaviour
             Instantiate(boom, transform.position, Quaternion.identity);
             boom.transform.localScale = boomLocalScale;
         }
-        
-        yield return new WaitForSeconds(1f);
     }
-    IEnumerator ScorePlay()
+    void ScorePlay()
     {
         //未分配score时，不会进行score的实例化
         //未分配score一般而言意味其组件主体为bird
         if(score != null)
         {
             Instantiate(score, transform.position, Quaternion.identity);
+            Score count = score.GetComponent<Score>();
+            
         }
-        yield return new WaitForSeconds(1f);
     }
 }
