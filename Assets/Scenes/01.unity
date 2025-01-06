@@ -1216,6 +1216,18 @@ PrefabInstance:
       propertyPath: score
       value: 
       objectReference: {fileID: 5214171075582804127, guid: 7f676377f7c9c884abd1225eb784d278, type: 3}
+    - target: {fileID: 9157398732209548811, guid: 6954643838bfbfe47b0a9a732e52858f, type: 3}
+      propertyPath: boomLocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157398732209548811, guid: 6954643838bfbfe47b0a9a732e52858f, type: 3}
+      propertyPath: boomLocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157398732209548811, guid: 6954643838bfbfe47b0a9a732e52858f, type: 3}
+      propertyPath: boomLocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
