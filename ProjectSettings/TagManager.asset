@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Slingshot
+  - Left
+  - LeftPoint
+  - Right
+  - RightPoint
   layers:
   - Default
   - TransparentFX
@@ -41,6 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: player
+  - name: Player
     uniqueID: 2032985427
+    locked: 0
+  - name: Boom
+    uniqueID: 943186835
+    locked: 0
+  - name: Score
+    uniqueID: 3303016517
     locked: 0

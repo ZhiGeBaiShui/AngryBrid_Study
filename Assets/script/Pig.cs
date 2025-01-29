@@ -4,20 +4,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Pig : MonoBehaviour
+public class Pig : Animal
 {
     public GameObject boom;
     public GameObject score;
     //死亡得分
-    public Vector3 boomLocalScale;
+    public Vector3 boomLocalScale = new(1f, 1f, 1f);
     private Vector3 scoreScale = new(1, 1, 1);
+    private bool alive = true;//判断是否活着，避免多次进入死亡处理的函数
+
     //Score分数需要变换的最终大小
     private void Start()
     {
         //分数对象不为空
         if(score != null)
         {
-             //计算Score分数最初的大小，由x轴的宽度决定
+            //计算Score分数最初的大小，由x轴的宽度决定
             Renderer now = GetComponent<Renderer>();
             //保证Renderer存在，避免报错
             if(now != null)
@@ -30,29 +32,29 @@ public class Pig : MonoBehaviour
         }
     }
     public float hurtSpeed = 5f; //默认碰撞发生时，相对速度每相差5就减少一滴血
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)//发生碰撞的时候
     {
-        BodyHP bH = GetComponent<BodyHP>();
         // 用以测试速度取值
         // Rigidbody2D rg = GetComponent<Rigidbody2D>();
         // Debug.Log(rg.velocity);
         // Debug.Log(other.relativeVelocity.magnitude);
         // Debug.Log((int)(other.relativeVelocity.magnitude / hurtSpeed));
-        int x = bH.damageHP((int)(other.relativeVelocity.magnitude / hurtSpeed));
-        if(x <= 0)
+        int x = damageHP((int)(other.relativeVelocity.magnitude / hurtSpeed));
+        if(x <= 0 && alive == true)
         {
+            alive = false;
             DieEnd();
         }
     }
-    private void DieEnd()
+    public override void DieEnd()
     {
         /*
         以下代码为游戏对象死亡以后会进行的各类处理
         目前仅仅存在两种游戏对象
         pig死亡会产生死亡动画与分数
         */
-        BoomPlay();
         ScorePlay();
+        BoomPlay();
         Destroy(gameObject);
     }
     void BoomPlay()
@@ -65,15 +67,17 @@ public class Pig : MonoBehaviour
             boom.transform.localScale = boomLocalScale;
         }
     }
+    public float totalTime = 1f;//控制score滑动变大的速率，整个过程持续totalTime秒
+    public float stopTime = 1f;//当score分数完成缩放以后，显示stopTime秒再消失
     void ScorePlay()
     {
         //未分配score时，不会进行score的实例化
         //未分配score一般而言意味其组件主体为bird
         if(score != null)
         {
-            Instantiate(score, transform.position, Quaternion.identity);
-            Score count = score.GetComponent<Score>();
-            
+            GameObject now = Instantiate(score, transform.position, Quaternion.identity);
+            Score count = now.GetComponent<Score>();
+            count.Init(scoreScale, scoreScale * 2.5f, totalTime, stopTime);
         }
     }
 }

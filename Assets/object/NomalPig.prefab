@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1012942744121689246}
   - component: {fileID: 2673111191823736376}
   - component: {fileID: 2459811768391056171}
-  - component: {fileID: 3341175594678391277}
   - component: {fileID: 9157398732209548811}
   m_Layer: 0
   m_Name: NomalPig
@@ -104,7 +103,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 1
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 1e76f8db40d59c846bba1fedbef68837, type: 2}
+  m_Material: {fileID: 6200000, guid: 91bcf03d9e058fe4599ba914318ee174, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -124,7 +123,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 950007276489916432}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1e76f8db40d59c846bba1fedbef68837, type: 2}
+  m_Material: {fileID: 6200000, guid: 91bcf03d9e058fe4599ba914318ee174, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -150,19 +149,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!114 &3341175594678391277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950007276489916432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbc545814afea34abac9d408555278f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 2
 --- !u!114 &9157398732209548811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e91f25df5eeba419b6503d19e0428d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 2
+  boom: {fileID: 4990089914139359054, guid: d2752f3a2ddf31b49bef731e15c879cb, type: 3}
+  score: {fileID: 5214171075582804127, guid: 7f676377f7c9c884abd1225eb784d278, type: 3}
+  boomLocalScale: {x: 2, y: 2, z: 2}
   hurtSpeed: 2
+  totalTime: 0.5
+  stopTime: 0.5
