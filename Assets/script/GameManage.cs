@@ -1,13 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
+
 
 public class GameManage : MonoBehaviour
 {
-    //计算跳跃的总时间
+    private static GameManage _instance;
+    public static GameManage Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameManage>();
+                if (_instance == null)
+                {
+                    // 如果场景中没有 GameManage，创建一个新的 GameObject
+                    GameObject obj = new GameObject("GameManage");
+                    _instance = obj.AddComponent<GameManage>();
+                }
+            }
+            return _instance;
+        }
+    }
+    /// <summary>
+    /// 动画播放完，显示星星数量
+    /// </summary>
+    public void ShowStar()
+    {
+
+    }
+    /// <summary>
+    /// 计算跳跃的总时间
+    /// </summary>
     private float yJumpV0; // 跳跃的y轴初速度
     float CalculateJumpTime(float startY, float peakY, float endY, float g)
     {
@@ -26,21 +51,20 @@ public class GameManage : MonoBehaviour
     private LineRenderer rightLine;  //弹弓右边部分
     private Transform leftPoint;
     private Transform rightPoint;
-    public List<Bird> birds; // 此弹弓绑定的小鸟
-    public List<Pig> pigs;
-    private int pigCount; //记录存活猪的数量
-
+    public List<Transform> birds; // 此弹弓绑定的小鸟
+    [Tooltip("不要修改这个公共变量的数量，显示只是为了方便调试过程。")]
+    public int pigCount = 0; //记录存活猪的数量，已经进行了动态的计数，不需要进行设置
+    public Vector3 gapBird = new(-0.5f, 0, 0); // 用来设置小鸟之间的间隙，负数表示在弹弓左边
     
-    public float birdSpacing = 0.5f; // 用来设置小鸟之间的间隙，在弹弓左边
-    
-    // 此函数用来初始化小鸟最初在的位置
-    private void InitBirdPosition()
+    /// <summary>
+    /// 此函数用来初始化小鸟最初在的位置
+    /// </summary>
+    public void InitBirdPosition()
     {
         int cnt = 0;
-        foreach(Bird nowBird in birds)
+        foreach(Transform nowBird in birds)
         {
-            Transform coordinate = nowBird.GetComponent<Transform>(); //坐标操作
-            coordinate.position = singShotStart - new Vector3(cnt * birdSpacing ,  0, 0); // 计算小鸟应该在的位置
+            nowBird.position = singShotStart + cnt * gapBird; // 计算小鸟应该在的位置
             cnt++;
         }
     }
@@ -55,10 +79,14 @@ public class GameManage : MonoBehaviour
     private float timeJump;//小鸟的跳跃时间
     void Awake()
     {
-        pigCount = pigs.Count;
+        if(_instance != null)
+        {
+            Debug.Log("出现两个相同的GameManage的实例对象");
+            Destroy(gameObject);
+        }
+        _instance = this;
         
         singShotStart = transform.position; // 获得弹弓本体的坐标
-
         singShotStart.y -= slingShotHeight; // 通过计算得到起跳位置
         singShotStart.x -= xJump;
 
@@ -83,7 +111,10 @@ public class GameManage : MonoBehaviour
         */
 
     }
-    private void BindBirdVariables(Bird readyBird) // 弹簧的绑定操作
+    /// <summary>
+    /// 弹簧的绑定操作
+    /// </summary>
+    private void BindBirdVariables(Bird readyBird) 
     {
         SpringJoint2D sp = readyBird.GetComponent<SpringJoint2D>();
         sp.connectedBody = GetComponent<Rigidbody2D>();
@@ -126,18 +157,21 @@ public class GameManage : MonoBehaviour
             return ;
         }
         // 在场景开始，和飞出小鸟结束以后调用
-        Bird readyBird = birds[birdNumber];
-        PlayBirdsReadyAnimation(readyBird, birdNumber * birdSpacing);
+        Transform readyBird = birds[birdNumber];
+        PlayBirdsReadyAnimation(readyBird.GetComponent<Bird>(), -birdNumber * gapBird.x);
         birdNumber++;
 
     }
+    public GameObject win;
+    public GameObject lose;
     private void OnVictory() //游戏胜利函数
     {
-
+        Debug.Log("YES");
+        win.SetActive(true);
     }
     private void OnDefeat() //游戏失败函数
     {
-
+        lose.SetActive(true);
     }
     void Start()
     {
@@ -164,5 +198,9 @@ public class GameManage : MonoBehaviour
             yield return null;
         }
         readyBird.rotation = Quaternion.Slerp(startRotation, endRotation, 1);
+    }
+    void OnDestroy()
+    {
+        _instance = null;
     }
 }

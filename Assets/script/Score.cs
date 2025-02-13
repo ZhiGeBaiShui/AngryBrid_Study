@@ -1,14 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 
-//此脚本无法实现单独运行，调用此脚本的时候需要设置好传入的三个变量值
+
+
+/// <summary>
+/// 此脚本无法实现单独运行，调用此脚本的时候需要设置好传入的三个变量值
+/// </summary>
 public class Score : MonoBehaviour
 {
     //为了防止遗忘调用，这里会设置初始值，保证项目整体可以运行
@@ -19,7 +18,6 @@ public class Score : MonoBehaviour
 
     //Init 用以初始化分数动画的初始大小和最终大小
     //仅当调用Init函数以后，分数放大动画才会进行
-
     //start表示缩放动画的起始缩放，end表示终点缩放，tatalTime表示缩放的持续总时间，stopTime放大完成以后分数显示stopTime秒后消失
     public void Init(Vector3 start, Vector3 end, float totalTime, float stopTime)
     {

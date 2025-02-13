@@ -88,10 +88,11 @@ public class Bird : Animal
     //恢复弹弓弹簧到原来的位置
     private void InitLine()
     {
-        rightLine.SetPosition(0,rightPoint.position);
-        rightLine.SetPosition(1,point.position);
+        Vector3 now = point.position - new Vector3(0.2f, 0, 0);
+        rightLine.SetPosition(0, rightPoint.position);
+        rightLine.SetPosition(1, now);
         leftLine.SetPosition(0,leftPoint.position);
-        leftLine.SetPosition(1,point.position);
+        leftLine.SetPosition(1, now);
     }
 
     //划线操作，让弹弓弹簧跟随小鸟
@@ -101,7 +102,6 @@ public class Bird : Animal
         rightLine.SetPosition(1,now);
         leftLine.SetPosition(0,leftPoint.position);
         leftLine.SetPosition(1,now);
-        
     }
     private void OnCollisionEnter2D(Collision2D other) //发生碰撞的时候
     {

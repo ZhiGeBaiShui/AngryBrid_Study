@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4305697764899087432}
   - component: {fileID: 1012942744121689246}
   - component: {fileID: 2673111191823736376}
-  - component: {fileID: 2459811768391056171}
+  - component: {fileID: 7171553433319599104}
   - component: {fileID: 9157398732209548811}
   m_Layer: 0
-  m_Name: NomalPig
+  m_Name: LongWodden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 2032985427
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2111423160, guid: 0ee89e3f0ee4af943816dede4def9dea, type: 3}
+  m_Sprite: {fileID: -959330729, guid: e193c1d07ba7b0243a0d47aa5e36cf9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &2459811768391056171
-CircleCollider2D:
+--- !u!61 &7171553433319599104
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,8 +147,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.05, y: 0.2}
+    newSize: {x: 0.78, y: 0.77}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Size: {x: 2.05, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!114 &9157398732209548811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,10 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e91f25df5eeba419b6503d19e0428d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 2
+  HP: 3
   boom: {fileID: 4990089914139359054, guid: d2752f3a2ddf31b49bef731e15c879cb, type: 3}
-  score: {fileID: 5214171075582804127, guid: 7f676377f7c9c884abd1225eb784d278, type: 3}
-  boomLocalScale: {x: 2, y: 2, z: 2}
-  hurtSpeed: 2
+  score: {fileID: 5214171075582804127, guid: fe814621a971a0c4987bfaf46124a34d, type: 3}
+  boomLocalScale: {x: 1, y: 1, z: 1}
+  scoreScale: {x: 0.5, y: 0.5, z: 0.5}
+  hurtSpeed: 1
+  hurtMap:
+  - {fileID: 11400000, guid: 6b3d58ec30c0d9f4c8cebc13d089ea83, type: 2}
+  - {fileID: 11400000, guid: dc05477576a9abc4ca217e14ee66c56f, type: 2}
+  - {fileID: 11400000, guid: 37431633cd83d8045901d0d3ceab1b67, type: 2}
   totalTime: 0.5
   stopTime: 0.5

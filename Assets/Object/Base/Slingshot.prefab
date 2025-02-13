@@ -385,7 +385,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   pigs: []
-  birdSpacing: 0.5
+  gapBird: {x: -0.5, y: 0, z: 0}
   slingShotHeight: 1.49735
   xJump: 0.5
   heightJump: 1

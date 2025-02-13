@@ -1500,7 +1500,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 169
-        y: 398
+        y: 397
         width: 110
         height: 99
       alignment: 0
@@ -1814,8 +1814,8 @@ TextureImporter:
       name: BIRDS_1_97
       rect:
         serializedVersion: 2
-        x: 169
-        y: 297
+        x: 171
+        y: 296
         width: 110
         height: 99
       alignment: 0
@@ -2655,7 +2655,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 169
-        y: 99
+        y: 98
         width: 109
         height: 97
       alignment: 0
