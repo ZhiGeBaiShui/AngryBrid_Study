@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2888774470116593859, guid: 460674d2fb53a134ba7510bb7198c77b, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3468390956915771148, guid: 460674d2fb53a134ba7510bb7198c77b, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1

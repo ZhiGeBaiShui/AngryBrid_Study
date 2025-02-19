@@ -166,7 +166,6 @@ public class GameManage : MonoBehaviour
     public GameObject lose;
     private void OnVictory() //游戏胜利函数
     {
-        Debug.Log("YES");
         win.SetActive(true);
     }
     private void OnDefeat() //游戏失败函数
