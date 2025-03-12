@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2673111191823736376}
   - component: {fileID: 7171553433319599104}
   - component: {fileID: 9157398732209548811}
+  - component: {fileID: 7836614110722268814}
   m_Layer: 0
   m_Name: WoddenBox
   m_TagString: Untagged
@@ -172,15 +173,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 4
+  isBlink: 0
   boom: {fileID: 4990089914139359054, guid: d2752f3a2ddf31b49bef731e15c879cb, type: 3}
   score: {fileID: 5214171075582804127, guid: fe814621a971a0c4987bfaf46124a34d, type: 3}
+  value: 0
   boomLocalScale: {x: 1, y: 1, z: 1}
   scoreScale: {x: 0.5, y: 0.5, z: 0.5}
   hurtSpeed: 1
-  hurtMap:
-  - {fileID: 11400000, guid: a943febca17dae0449c803bee0628dd2, type: 2}
-  - {fileID: 11400000, guid: 4f5dd54bc72f6ce4b8dc7e437c417ed4, type: 2}
-  - {fileID: 11400000, guid: 6f179dffaf0a9054484ba779d6c7b739, type: 2}
-  - {fileID: 11400000, guid: 3dbb4dff5207fad42b795e59c34e537a, type: 2}
   totalTime: 0.5
   stopTime: 0.5
+--- !u!95 &7836614110722268814
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950007276489916432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f5c2c1b937996f41afc76eebf698ea2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

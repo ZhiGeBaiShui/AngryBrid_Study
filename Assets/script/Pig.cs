@@ -5,6 +5,28 @@ using UnityEngine;
 
 public class Pig : Animal
 {
+    [Tooltip("是否存在眨眼动画。")]
+    public bool isBlink = false; 
+    // pig类组件一定存在Animator组件
+    private Animator animator;
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        if(isBlink == true)
+        {
+            StartCoroutine(Blink());
+        }
+    }
+    IEnumerator Blink()
+    {
+        float random = 0f;
+        while(true)
+        {
+            random = Random.Range(5.0f, 10.0f);
+            yield return new WaitForSeconds(random);
+            animator.SetTrigger("Blink");
+        }
+    }
     private GameManage instance;
     public GameObject boom;
     public GameObject score;
@@ -17,13 +39,6 @@ public class Pig : Animal
     private bool alive = true;//判断是否活着，避免多次进入死亡处理的函数
     //Score分数需要变换的最终大小
     public float hurtSpeed = 5f; //默认碰撞发生时，相对速度每相差5就减少一滴血
-    [Tooltip("请注意，要保证最后一个状态——即濒死状态对应的HP为0。")]
-    public List<HealthSpriteMap> hurtMap;
-    private SpriteRenderer lookNow;
-    void Awake()
-    {
-        lookNow = GetComponent<SpriteRenderer>();
-    }
     void Start()
     {
         instance = GameManage.Instance;
@@ -40,20 +55,11 @@ public class Pig : Animal
         // Debug.Log(other.relativeVelocity.magnitude);
         // Debug.Log((int)(other.relativeVelocity.magnitude / hurtSpeed));
         int x = damageHP((int)(other.relativeVelocity.magnitude / hurtSpeed));
-        int cntBack = hurtMap.Count - 1;
-        while(cntBack >= 0 && x < hurtMap[cntBack].hp)
-        {
-            hurtMap.RemoveAt(cntBack);
-            cntBack--;
-        }
+        animator.SetInteger("HP", x);
         if(x <= 0 && alive == true)
         {
             alive = false;
             DieEnd();
-        }
-        if (lookNow != null && hurtMap.Count > 0)
-        {
-            lookNow.sprite = hurtMap[cntBack].sprite; // 设置精灵
         }
     }
     public override void DieEnd()

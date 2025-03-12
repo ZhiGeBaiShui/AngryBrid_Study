@@ -1643,11 +1643,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_89
+      name: NormalPig_2_1
       rect:
         serializedVersion: 2
         x: 634
-        y: 358
+        y: 359
         width: 79
         height: 74
       alignment: 0
@@ -1664,7 +1664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_90
+      name: NormalPig_2_2
       rect:
         serializedVersion: 2
         x: 715
@@ -1685,11 +1685,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_91
+      name: NormalPig_1_0
       rect:
         serializedVersion: 2
         x: 796
-        y: 358
+        y: 359
         width: 78
         height: 74
       alignment: 0
@@ -1706,7 +1706,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_92
+      name: NormalPig_1_1
       rect:
         serializedVersion: 2
         x: 876
@@ -1937,7 +1937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_103
+      name: NormalPig_3_0
       rect:
         serializedVersion: 2
         x: 545
@@ -1958,7 +1958,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_104
+      name: NormalPig_1_2
       rect:
         serializedVersion: 2
         x: 634
@@ -2252,7 +2252,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_118
+      name: NormalPig_3_1
       rect:
         serializedVersion: 2
         x: 545
@@ -2693,7 +2693,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_139
+      name: NormalPig_3_2
       rect:
         serializedVersion: 2
         x: 545
@@ -3071,7 +3071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BIRDS_1_157
+      name: NormalPig_2_0
       rect:
         serializedVersion: 2
         x: 545
@@ -3633,8 +3633,6 @@ TextureImporter:
       BIRDS_1_100: 487482302
       BIRDS_1_101: 1659862958
       BIRDS_1_102: 1924732010
-      BIRDS_1_103: 2111423160
-      BIRDS_1_104: -1594451973
       BIRDS_1_105: -756757207
       BIRDS_1_106: -272776699
       BIRDS_1_107: 79822143
@@ -3649,7 +3647,6 @@ TextureImporter:
       BIRDS_1_115: 1199185875
       BIRDS_1_116: 2444381
       BIRDS_1_117: 1131182008
-      BIRDS_1_118: -163854537
       BIRDS_1_119: -844622773
       BIRDS_1_12: 727170527
       BIRDS_1_120: -1945383551
@@ -3672,7 +3669,6 @@ TextureImporter:
       BIRDS_1_136: 1507429962
       BIRDS_1_137: -817098413
       BIRDS_1_138: -561122676
-      BIRDS_1_139: -1047434931
       BIRDS_1_14: 631480490
       BIRDS_1_140: -2067092407
       BIRDS_1_141: 772230408
@@ -3692,7 +3688,6 @@ TextureImporter:
       BIRDS_1_154: 569032975
       BIRDS_1_155: -756672
       BIRDS_1_156: 479683245
-      BIRDS_1_157: 748927416
       BIRDS_1_158: -859454545
       BIRDS_1_159: -1720185540
       BIRDS_1_16: 1968621590
@@ -3798,11 +3793,7 @@ TextureImporter:
       BIRDS_1_86: -1683777807
       BIRDS_1_87: -1770830434
       BIRDS_1_88: -1462109155
-      BIRDS_1_89: 1804660765
       BIRDS_1_9: -1249179002
-      BIRDS_1_90: 1934713853
-      BIRDS_1_91: 1602462119
-      BIRDS_1_92: -294061435
       BIRDS_1_93: 695213910
       BIRDS_1_94: 1758206830
       BIRDS_1_95: -2123690023
@@ -3810,6 +3801,15 @@ TextureImporter:
       BIRDS_1_97: 1474643971
       BIRDS_1_98: 938101971
       BIRDS_1_99: 1363623562
+      NormalPig_1_0: 1602462119
+      NormalPig_1_1: -294061435
+      NormalPig_1_2: -1594451973
+      NormalPig_2_0: 748927416
+      NormalPig_2_1: 1804660765
+      NormalPig_2_2: 1934713853
+      NormalPig_3_0: 2111423160
+      NormalPig_3_1: -163854537
+      NormalPig_3_2: -1047434931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

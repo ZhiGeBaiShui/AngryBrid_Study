@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WoodenBox_1
+      name: WoddenBox_4
       rect:
         serializedVersion: 2
         x: 723
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WoodenBox_3
+      name: WoddenBox_2
       rect:
         serializedVersion: 2
         x: 809
@@ -320,11 +320,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WoodenBox_2
+      name: WoddenBox_3
       rect:
         serializedVersion: 2
         x: 723
-        y: 842
+        y: 841
         width: 82
         height: 82
       alignment: 0
@@ -341,10 +341,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WoodenBox_4
+      name: WoddenBox_1
       rect:
         serializedVersion: 2
-        x: 809
+        x: 810
         y: 843
         width: 82
         height: 82
@@ -2000,7 +2000,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongWodden_1
+      name: LongWodden_3
       rect:
         serializedVersion: 2
         x: 319
@@ -2042,7 +2042,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LongWodden_3
+      name: LongWodden_1
       rect:
         serializedVersion: 2
         x: 733
@@ -4205,13 +4205,13 @@ TextureImporter:
       BLOCKS_1_97: -313600483
       BLOCKS_1_98: -1642885180
       BLOCKS_1_99: -1752685452
-      LongWodden_1: -959330729
+      LongWodden_1: 333161532
       LongWodden_2: -1684735064
-      LongWodden_3: 333161532
-      WoodenBox_1: -101411702
-      WoodenBox_2: 861216220
-      WoodenBox_3: -1797432642
-      WoodenBox_4: 635745912
+      LongWodden_3: -959330729
+      WoddenBox_1: 635745912
+      WoddenBox_2: -1797432642
+      WoddenBox_3: 861216220
+      WoddenBox_4: -101411702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

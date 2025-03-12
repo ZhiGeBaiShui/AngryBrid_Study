@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2673111191823736376}
   - component: {fileID: 2459811768391056171}
   - component: {fileID: 9157398732209548811}
+  - component: {fileID: 7019300008083487309}
   m_Layer: 0
   m_Name: NomalPig
   m_TagString: Untagged
@@ -162,15 +163,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
+  isBlink: 1
   boom: {fileID: 4990089914139359054, guid: d2752f3a2ddf31b49bef731e15c879cb, type: 3}
   score: {fileID: 5214171075582804127, guid: 7f676377f7c9c884abd1225eb784d278, type: 3}
   value: 1
   boomLocalScale: {x: 2, y: 2, z: 2}
   scoreScale: {x: 1, y: 1, z: 1}
   hurtSpeed: 2
-  hurtMap:
-  - {fileID: 11400000, guid: d5618d3ee57f22e4ea85b9aaa5a9871d, type: 2}
-  - {fileID: 11400000, guid: ce381efc44c1434458b3ea2c1dee7ead, type: 2}
-  - {fileID: 11400000, guid: 4d47d9b06f0c7ba4b99c2cd68245c610, type: 2}
   totalTime: 0.5
   stopTime: 0.5
+--- !u!95 &7019300008083487309
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950007276489916432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6de70fcdc4f602c40bfeca6ec4ec8f44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
