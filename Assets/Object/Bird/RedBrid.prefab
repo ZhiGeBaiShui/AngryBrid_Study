@@ -340,4 +340,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 2
   birdWeight: 0.2
-  maxSpringStretch: 2
+  maxSpringStretch: 1

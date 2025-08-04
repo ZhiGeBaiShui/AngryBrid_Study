@@ -39,6 +39,7 @@ public class Pig : Animal
     private bool alive = true;//判断是否活着，避免多次进入死亡处理的函数
     //Score分数需要变换的最终大小
     public float hurtSpeed = 5f; //默认碰撞发生时，相对速度每相差5就减少一滴血
+    private int scoreValue = 0; // 物体的分数，如果没有score组件，意味是0分
     void Start()
     {
         instance = GameManage.Instance;
@@ -72,6 +73,7 @@ public class Pig : Animal
         ScorePlay();
         BoomPlay();
         Destroy(gameObject);
+        instance.AddScore(scoreValue);
         if(value == true)
         {
             instance.pigCount -= 1;
@@ -97,6 +99,7 @@ public class Pig : Animal
         {
             GameObject now = Instantiate(score, transform.position, Quaternion.identity);
             Score count = now.GetComponent<Score>();
+            scoreValue = count.scoreValue;
             count.Init(scoreScale, scoreScale * 2.5f, totalTime, stopTime);
         }
     }

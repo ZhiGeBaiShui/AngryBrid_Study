@@ -15,6 +15,7 @@ public class Score : MonoBehaviour
     private float totalTime = 1f;//表示放大动画进行的总时间
     private float stopTime;//放大完成以后分数显示stopTime秒后消失
 
+    public int scoreValue = 0;
 
     //Init 用以初始化分数动画的初始大小和最终大小
     //仅当调用Init函数以后，分数放大动画才会进行

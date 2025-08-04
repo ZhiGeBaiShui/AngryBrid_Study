@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
 public class GameManage : MonoBehaviour
 {
+    // 获取分数显示UI
+    public TextMeshProUGUI scoreText = null;
+    [HideInInspector]
+    private int score = 0; // 统计分数
+    public void AddScore(int now)
+    {
+        score += now;
+        scoreText.text = $"Score:{score:0}";
+    }
     private static GameManage _instance;
     public static GameManage Instance
     {
@@ -24,17 +34,10 @@ public class GameManage : MonoBehaviour
         }
     }
     /// <summary>
-    /// 动画播放完，显示星星数量
-    /// </summary>
-    public void ShowStar()
-    {
-
-    }
-    /// <summary>
     /// 计算跳跃的总时间
     /// </summary>
     private float yJumpV0; // 跳跃的y轴初速度
-    float CalculateJumpTime(float startY, float peakY, float endY, float g)
+    private float CalculateJumpTime(float startY, float peakY, float endY, float g)
     {
         // 上升时间
         yJumpV0 = Mathf.Sqrt(2 * g * (peakY - startY));
@@ -77,8 +80,16 @@ public class GameManage : MonoBehaviour
     public float heightJump = 1f; //小鸟起跳超过就绪位置多高
     const float gJump = 9.81f; //重力加速度
     private float timeJump;//小鸟的跳跃时间
+    private FollowTarget cameraFollowTarget; //绑定当前场景的相机
     void Awake()
     {
+        cameraFollowTarget = Camera.main.GetComponent<FollowTarget>();
+        //初始化分数
+        AddScore(0);
+        if(scoreText == null)
+        {
+            Debug.Log("Don't find scoreText.Please set it.");
+        }
         if(_instance != null)
         {
             Debug.Log("出现两个相同的GameManage的实例对象");
@@ -146,18 +157,19 @@ public class GameManage : MonoBehaviour
     private int birdNumber = 0; //记录此时到第几只小鸟飞行了
     public void BirdReadyShot()
     {
-        if(pigCount == 0) //如果小猪已经死完了
+        if (pigCount == 0) //如果小猪已经死完了
         {
             OnVictory();
-            return ;
+            return;
         }
-        if(birdNumber == birds.Count) //如果发现是最后一只小鸟
+        if (birdNumber == birds.Count) //如果发现是最后一只小鸟
         {
             OnDefeat();
-            return ;
+            return;
         }
         // 在场景开始，和飞出小鸟结束以后调用
         Transform readyBird = birds[birdNumber];
+        cameraFollowTarget.SetTarget(birds[birdNumber].transform);
         PlayBirdsReadyAnimation(readyBird.GetComponent<Bird>(), -birdNumber * gapBird.x);
         birdNumber++;
 
@@ -166,8 +178,12 @@ public class GameManage : MonoBehaviour
     public GameObject lose;
     private void OnVictory() //游戏胜利函数
     {
+        
         win.SetActive(true);
     }
+    public int oneStar = 10000;
+    public int twoStar = 20000;
+    public int threeStar = 40000;
     private void OnDefeat() //游戏失败函数
     {
         lose.SetActive(true);
@@ -176,7 +192,7 @@ public class GameManage : MonoBehaviour
     {
         BirdReadyShot();
     }
-    IEnumerator BirdFlip(Transform readyBird, float timeSum) //小鸟翻跟头
+    IEnumerator BirdFlip(Transform readyBird, float timeSum) //小鸟翻跟头,传入准备的小鸟，翻跟头的总时间
     {
         Quaternion startRotation = readyBird.rotation;
         Quaternion midRotation = startRotation * Quaternion.Euler(0, 0, 180f);
